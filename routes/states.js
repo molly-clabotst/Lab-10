@@ -1,8 +1,9 @@
-var express = require('express')
-var States = require('../models').States
+var express = require('express');
+var States = require('../models').States;
 
 var router = express.Router();
 
+// router will get the json response that contains the states
 router.get('/states', function (req, res, next) {
     States.findAll({order: ['name']})
         .then( states=>{
@@ -10,5 +11,20 @@ router.get('/states', function (req, res, next) {
         })
         .catch( err=> next(err))
 });
+
+router.patch('/state/:name', function (req, res, next) {
+    States.update({visited: req.body.visited}, {where: {
+        name: req.params.name,
+            }}
+        )
+        .then(rows=>{
+            if (rows) {
+                return res.send('ok')
+            }else {
+                return  res.status(404).send()
+            }
+        })
+    
+})
 
 module.exports = router;
