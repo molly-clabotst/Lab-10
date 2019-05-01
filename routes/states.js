@@ -12,6 +12,18 @@ router.get('/states', function (req, res, next) {
         .catch( err=> next(err))
 });
 
+router.get('/states/:name', function (req, res, next) {
+   States.findOne({where: {name: req.params.name}})
+       .then(state=>{
+           if (state)   {
+               return res.json(state)
+           } else {
+               return res.status(404).send()
+           }
+       })
+       .catch(err=>next.err())
+});
+
 router.patch('/state/:name', function (req, res, next) {
     States.update({visited: req.body.visited}, {where: {
         name: req.params.name,
@@ -24,6 +36,7 @@ router.patch('/state/:name', function (req, res, next) {
                 return  res.status(404).send()
             }
         })
+
     
 })
 

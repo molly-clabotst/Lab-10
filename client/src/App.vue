@@ -9,13 +9,11 @@
 <script>
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import About from '@/components/About'
-import StateList from '@/components/StateList'
 
 export default {
   name: 'app',
   components: {
-    Header, Footer, About, StateList
+    Header, Footer
   }
 }
 </script>

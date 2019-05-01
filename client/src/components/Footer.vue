@@ -10,9 +10,11 @@
             </span>
         </div>
 <!--        credit for the image-->
-        <p class="text-right p-2">Header image by
+        <p class="text-right credit p-2">Header image by
         <a href="https://unsplash.com/@tabeadamm">Tabea Damm via Unsplash
-        </a> </p>
+        </a>
+            <a href="https://icons8.com/icon/43632/map">Map Icon by Icons8</a>
+        </p>
     </div>
 </template>
 
@@ -23,5 +25,8 @@
 </script>
 
 <style scoped>
-
+.credit{
+    font-size: 0.1em;
+    font-style: italic;
+}
 </style>
